@@ -1,4 +1,4 @@
-# selenium-headless
+# Selenium-headless
 Selenium webdriver with headless chrome.
 
 # Setup
