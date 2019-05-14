@@ -1,5 +1,6 @@
 import unittest
 from selenium import webdriver
+from unittest.suite import TestSuite
 from selenium.common.exceptions import NoSuchElementException
 
 class duckduckgo(unittest.TestCase):
@@ -31,6 +32,15 @@ class duckduckgo(unittest.TestCase):
         except NoSuchElementException as ex:
             self.fail(ex.msg)
 
-if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(duckduckgo)
-    unittest.TextTestRunner(verbosity=3).run(suite)
+if __name__ == '__main__':  
+	# create the suite from the test classes
+    suite = TestSuite()
+    # load the tests
+    tests = unittest.TestLoader()
+
+	# add the tests to the suite
+    suite.addTests(tests.loadTestsFromTestCase(duckduckgo))
+
+    # run the suite
+    runner = unittest.TextTestRunner()
+    runner.run(suite)
